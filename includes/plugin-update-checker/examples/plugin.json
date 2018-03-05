@@ -1,0 +1,22 @@
+{
+	"name": "Roombooker",
+	"version": "1.3.1",
+	"download_url": "https://github.com/davidhyland/roombooker/",
+
+	"homepage": "https://github.com/davidhyland/roombooker/",
+	"requires": "4.5",
+	"tested": "4.8",
+	"last_updated": "2017-01-01 16:17:00",
+	"upgrade_notice": "Here's why you should upgrade...",
+
+	"author": "David Hyland",
+	"author_homepage": "http://dhyland.com/",
+
+	"sections": {
+		"description": "(Required) This is a room booking plugin specifically developed for JHub. ",
+		"installation": "1. Upload `roombooker` folder to the `/wp-content/plugins/` directory<br>2. Activate the plugin through the 'Plugins' menu in WordPress<br>3. Create a page to contain the calendar<br>3. Add `[jhub_roombooker]` shortcode to the page or add `echo do_shortcode('[jhub_roombooker]');` to your template",
+		"changelog": "(Recommended) Changelog. <p>This section will be displayed by default when the user clicks 'View version x.y.z details'.</p>",
+		"custom_section": "This is a custom section labeled 'Custom Section'."
+	}
+
+}

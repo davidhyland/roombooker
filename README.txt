@@ -1,18 +1,12 @@
 === JHub RoomBooker ===
-Contributors: David Hyland
-
+Contributors: (code@dhyland.com)
 Author: http://dhyland.com/
-
-Tags: calendar, scheduler
-
+Tags: calendar, scheduler, roombooker
 Requires at least: WordPress 4.1
-
 Tested up to: 4.9.4
-
 Stable tag: 4.9.2
-
+Requires PHP: 5.4
 License: GPLv2 or later
-
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Room booking plugin developed for JHub.
@@ -32,10 +26,10 @@ Administrator and Editor admin users have the ability to edit all bookings.
 3. Create a page to contain the calendar
 3. Add `[jhub_roombooker]` shortcode to the page or add `echo do_shortcode('[jhub_roombooker]');` to your template
 
-
-
-
 == Changelog ==
+
+= 1.3.2 =
+* Added auto plugin update functionality
 
 = 1.3.1 =
 * Fixed error and re-enabled javascript *strict* mode
@@ -76,6 +70,4 @@ Administrator and Editor admin users have the ability to edit all bookings.
 = 1.0 =
 * Initial release
 
-
-== Upgrade Notice ==
 
