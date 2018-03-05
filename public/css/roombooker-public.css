@@ -1,0 +1,351 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+/**
+ * Box model adjustments
+ * `border-box`... ALL THE THINGS - http://cbrac.co/RQrDL5
+ */
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.important { color:rgba(167, 37, 44, 1); }
+
+#roombooker .infobox {
+ background-color:#ccc;
+ padding:20px 20px;
+ margin-bottom:40px;
+}
+#roombooker .infobox h3 {
+  margin-bottom:1em;
+}
+#roombooker .infobox p {
+  padding-top:1em;
+  margin-bottom:0;
+}
+#roombooker .infobox h4 {
+  margin-top:0;
+  margin-bottom:1em;
+}
+#roombooker .infobox ul,
+#roombooker .infobox ol {
+ margin-left: 30px;
+}
+#roombooker .infobox ul li,
+#roombooker .infobox ol li {
+ margin-bottom: 5px;
+}
+
+/*
+FULL CALENDAR HACKS
+*/
+#roombooker table { margin-bottom:0; }
+#roombooker .fc-event.past-event, #roombooker .fc-event-dot.past-event { background-color: #9d9fa0; border-color:#9d9fa0; }
+#roombooker .fc-title { text-transform: uppercase; }
+#roombooker .fc-description { font-size:85%; }
+#roombooker .fc-toolbar button { font-size:80%; text-transform: uppercase;} 
+#roombooker .fc-toolbar h2 { margin-bottom: 0; }
+
+@media only screen and (min-width:960px) {
+
+  #roombooker .fc-toolbar button { font-size:85%; } 
+
+}
+
+#roombooker button[disabled]:hover, #roombooker button[disabled]:focus, 
+#roombooker input[type="button"], #roombooker input[type="button"][disabled]:hover, #roombooker input[type="button"][disabled]:focus, 
+#roombooker input[type="reset"], #roombooker input[type="reset"][disabled]:hover, #roombooker input[type="reset"][disabled]:focus, 
+#roombooker input[type="submit"], #roombooker input[type="submit"][disabled]:hover, #roombooker input[type="submit"][disabled]:focus {
+    background: #e6e6e6;
+    color: #333;
+    font-weight: bold;
+    line-height: inherit;
+    padding:0 .6em;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-radius:4px;
+    border-color:#e6e6e6 #e6e6e6 #bfbfbf;
+}
+
+/**
+ * 1. Force a vertical scrollbar - http://cbrac.co/163MspB
+ * NOTE: Use `text-rendering` with caution - http://cbrac.co/SJt8p1
+ * NOTE: Avoid the webkit anti-aliasing trap - http://cbrac.co/TAdhbH
+ * NOTE: IE for Windows Phone 8 ignores `-ms-text-size-adjust` if the
+ *       viewport <meta> tag is used - http://cbrac.co/1cFrAvl
+ */
+
+html {
+  font-size: 100%;
+  overflow-y: scroll; /* 1 */
+  min-height: 100%;
+}
+
+/* Icons */
+#roombooker .icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  fill: currentcolor;
+}
+
+table.fc-list-table tr[data-hasqtip] {
+  cursor:pointer;
+}
+
+/**
+ * Modals ($modals)
+ */
+
+/* 1. Ensure this sits above everything when visible */
+#roombooker .modal {
+    position: absolute;
+    z-index: 999; /* 1 */
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+#roombooker .modal.is-visible {
+    visibility: visible;
+}
+
+#roombooker .modal-overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 0%, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+#roombooker .modal.is-visible .modal-overlay {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+#roombooker .modal-wrapper {
+  position: fixed;
+  z-index: 998;
+  top: 2%;
+  left: 3%;
+  bottom: 2%;
+  right: 3%;
+  background-color: #fff;
+  box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+  overflow-y: scroll;
+}
+
+#roombooker .modal.wait * {
+  cursor:wait;
+}
+
+@media only screen and (min-width:600px) {
+
+  #roombooker .modal-wrapper {
+    left: 50%;
+    bottom:auto;
+    right:auto;
+    width: 33em;
+    margin-left: -16em;
+  }
+
+}
+
+@media only screen and (min-height:760px) {
+
+  #roombooker .modal-wrapper {
+    top: 10%;
+  }
+
+}
+
+@media only screen and (min-height:1000px) {
+
+  #roombooker .modal-wrapper {
+    top: 20%;
+  }
+
+}
+
+#roombooker .modal-transition {
+  transition: all 0.3s 0.12s;
+  transform: translateY(-10%);
+  opacity: 0;
+  overflow-y: scroll;
+}
+
+#roombooker .modal.is-visible .modal-transition {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#roombooker .modal-header,
+#roombooker .modal-content {
+  padding: 1em;
+}
+
+#roombooker .modal-header {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+  border-bottom: 1px solid #e8e8e8;
+}
+
+#roombooker .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  color: #aaa;
+  background: none;
+  border: 0;
+}
+
+#roombooker .modal-close:hover {
+  color: #777;
+}
+
+#roombooker .modal-heading {
+  font-size: 1.125em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#roombooker .modal-content > *:first-child {
+  margin-top: 0;
+}
+
+#roombooker .modal-content > *:last-child {
+  margin-bottom: 0;
+}
+
+
+#roombooker .wait { cursor: wait; }
+#roombooker .modal form > div {
+	clear:both;
+	margin-bottom:10px;
+}
+#roombooker .modal form > div > label {
+	display: block;
+	font-size: 90%;
+}
+#roombooker .modal form > div > span {
+	display: inline-block;
+	font-style: italic;
+	font-size: 90%;
+}
+#roombooker .modal form > div > input {
+	display: block;
+	width:100%;
+	background-color:#efefef;
+	font-size: 90%;
+}
+#roombooker .modal form > div > input:focus {
+	background-color:#fff;
+}
+#roombooker .modal form > div > input[readonly] {
+  background-color:transparent;
+  border:none;
+}
+#roombooker .modal form > div > select[disabled] {
+  color:#666;
+}
+#roombooker .modal form > div.buttons input {
+  display: inline-block;
+  font-size:80%;
+  padding:7px;
+  color:#fff;
+} 
+#roombooker .modal form > div.buttons #btnCancel {
+  width:31%;
+  margin-right:1%;
+  background-color:rgb(102, 102, 102);
+} 
+#roombooker .modal form > div.buttons #btnSave {
+  width:66%;
+  background-color:rgb(27, 111, 28);
+}
+#roombooker .modal form > div.buttons #btnUpdate {
+  width:31%;
+  background-color:rgb(27, 111, 28);
+}
+#roombooker .modal form > div.buttons #btnDelete {
+  width:31%;
+  margin-right:1%;
+  background-color:rgb(167, 37, 44);
+}
+#roombooker .modal form > div.buttons input:hover {
+	opacity:0.8;
+}	
+#roombooker .modal.wait form > div.buttons input,
+#roombooker .modal.wait form > div.buttons input:hover {
+  color:#fff !important;
+  padding:7px !important;
+  opacity:0.5 !important;
+} 
+#roombooker .modal form div.errorlist {
+  color: #e30613;
+  display: block;
+  font-size: 80%;
+}
+#roombooker .modal form .error input[type=text], form .error input[type=password], form .error textarea,  form .error select {
+  border: 1px solid #E30613;
+  background-color:#F4E3E4;
+}
+
+
+@media only screen and (min-width:480px) {
+
+	#roombooker .modal form > div > label {
+		display: inline-block;
+		width:32%;
+		font-size:100%;
+	}
+	#roombooker .modal form > div > span {
+		font-size: 100%;
+	}
+	#roombooker .modal form > div > input {
+		display: inline-block;
+		width:66%;
+		font-size:100%;
+	}
+	#roombooker .modal form > div.buttons #btnCancel {
+		width:31%;
+		font-size:100%;
+	}	
+  #roombooker .modal form > div.buttons #btnSave {
+    width:66%;
+    font-size:100%;
+  }
+  #roombooker .modal form > div.buttons #btnUpdate,
+  #roombooker .modal form > div.buttons #btnDelete {
+    width:31%;
+    font-size:100%;
+  }
+	#roombooker .modal form div.errorlist {
+  	padding-left: 33%;
+	}
+}
+
+
+.clear { clear:both; height:0px; }
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }

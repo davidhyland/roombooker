@@ -1,0 +1,21 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+.roombooker .doughnut .canvas-holder { float:left; width:100%; max-width:450px; margin:40px 0 40px 0;}
+
+.roombooker .bar .canvas-holder { float:none; width:95%; max-width:800px; margin:40px 0 40px 0;}
+
+
+@media only screen and (min-width:1024px) {
+
+	.roombooker .doughnut .canvas-holder { width:30%; margin:40px 3% 40px 0;}
+
+}
+
+@media only screen and (min-width:1200px) {
+
+	.roombooker .bar .canvas-holder { float:left; width:45%; margin-right:5%;}
+
+}
