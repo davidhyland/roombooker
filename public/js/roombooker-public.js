@@ -650,6 +650,9 @@
 		    	var doEdit = false;
 		    	var currentView = $(window).width() <= viewChangeSize ? 'agendaDay' : 'agendaTwoDay';
 
+		    	// remove no-js message
+		    	$('#roombooker-calendar > span').empty();
+
 		    	// loading edit event
 		    	if(jhubEdit == 1 && jhubEditDate != ''  && jhubEditId != '' && jhubEditError == 0) {
 			    	currentView = 'agendaDay';

@@ -101,11 +101,14 @@ table.fc-list-table tr[data-hasqtip] {
   cursor:pointer;
 }
 
+.qtip-content hr {
+  margin:0.5em 0 !important;
+}
 /**
  * Modals ($modals)
  */
 
-/* 1. Ensure this sits above everything when visible */
+/* Ensure this sits above everything when visible */
 #roombooker .modal {
     position: absolute;
     z-index: 999; /* 1 */
