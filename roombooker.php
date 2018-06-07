@@ -16,7 +16,7 @@
  * Plugin Name:       Room Booker
  * Plugin URI:        #
  * Description:       A custom room booking plugin for JHub. Activate and add the following shortcode to a page: [jhub_roombooker]
- * Version:           1.3.4
+ * Version:           1.3.5
  * Author:            David Hyland
  * Author URI:        http://dhyland.com/
  * License:           GPL-2.0+
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'ROOMBOOKER_VERSION', '1.3.4' );
+define( 'ROOMBOOKER_VERSION', '1.3.5' );
 define( 'ROOMBOOKER_TABLE', 'jhub_roombooker' );
 
 /**

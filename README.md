@@ -30,7 +30,7 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
-= 1.3.4 =
+= 1.3.5 =
 * Moved JS files to head
 * Added message for non-JS browsers
 

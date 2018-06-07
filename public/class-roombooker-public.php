@@ -100,15 +100,15 @@ class Roombooker_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( 'moment', plugin_dir_url( __DIR__) . 'includes/fullcalendar/lib/moment.min.js', array( 'jquery' ), $this->version, true );
-		wp_enqueue_script( 'qtip', plugin_dir_url( __DIR__ ) . 'includes/qtip/jquery.qtip.min.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( 'moment', plugin_dir_url( __DIR__) . 'includes/fullcalendar/lib/moment.min.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'qtip', plugin_dir_url( __DIR__ ) . 'includes/qtip/jquery.qtip.min.js', array( 'jquery' ), $this->version, false );
 		//wp_enqueue_script( 'fullcalendar', plugin_dir_url( __DIR__) . 'fullcalendar/fullcalendar.js', array( 'jquery' ), $this->version, true );
 		wp_enqueue_script( 'fullcalendar', plugin_dir_url( __DIR__) . 'includes/fullcalendar/fullcalendar.min.js', array( 'moment' ), $this->version, false );
-		wp_enqueue_script( 'scheduler', plugin_dir_url( __DIR__) . 'includes/fullcalendar/scheduler.min.js', array( 'fullcalendar' ), $this->version, true );
-		wp_enqueue_script( 'locale', plugin_dir_url( __DIR__) . 'includes/fullcalendar/locale/en-gb.js', array( 'fullcalendar' ), $this->version, true );
-		wp_enqueue_script( 'validation', plugin_dir_url( __FILE__ ) . 'js/validation.js', array( 'fullcalendar' ), $this->version, true );
-		wp_enqueue_script( 'smoke', plugin_dir_url( __DIR__ ) . 'includes/smoke/smoke.min.js', array( 'fullcalendar' ), $this->version, true );
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/roombooker-public.js', array( 'fullcalendar' ), $this->version, true );
+		wp_enqueue_script( 'scheduler', plugin_dir_url( __DIR__) . 'includes/fullcalendar/scheduler.min.js', array( 'fullcalendar' ), $this->version, false );
+		wp_enqueue_script( 'locale', plugin_dir_url( __DIR__) . 'includes/fullcalendar/locale/en-gb.js', array( 'fullcalendar' ), $this->version, false );
+		wp_enqueue_script( 'validation', plugin_dir_url( __FILE__ ) . 'js/validation.js', array( 'fullcalendar' ), $this->version, false );
+		wp_enqueue_script( 'smoke', plugin_dir_url( __DIR__ ) . 'includes/smoke/smoke.min.js', array( 'fullcalendar' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/roombooker-public.js', array( 'fullcalendar' ), $this->version, false );
 
 		// set up ajax url 
 		wp_localize_script( $this->plugin_name, 'roombookerajax', array('ajaxurl' => admin_url('admin-ajax.php')));
