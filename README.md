@@ -4,7 +4,7 @@ Contributors: David Hyland
 Author: http://dhyland.com/
 Tags: calendar, scheduler
 Requires at least: WordPress 4.1
-Tested up to: 4.9.4
+Tested up to: 4.9.6
 Stable tag: 4.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -29,6 +29,13 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 
 == Changelog ==
+
+= 1.3.4 =
+* Moved JS files to head
+* Added message for non-JS browsers
+
+= 1.3.2 =
+* Added auto plugin update functionality
 
 = 1.3.1 =
 * Fixed error and re-enabled javascript *strict* mode
