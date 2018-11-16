@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.3.8 =
+* Updated plugin version number
+
 = 1.3.7 =
 * Layout tweaks to admin stats page
 
