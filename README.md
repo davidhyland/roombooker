@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.3.7 =
+* Layout tweaks to admin stats page
+
 = 1.3.6 =
 * Added message for non-JS browsers
 

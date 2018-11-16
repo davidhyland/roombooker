@@ -10,7 +10,8 @@
 global $wpdb;
 $table_name = $wpdb->prefix . ROOMBOOKER_TABLE;
 
-$postdata = (! empty($_POST['month'])) ? trim($_POST['month']) : false;
+//$postdata = (! empty($_POST['month'])) ? trim($_POST['month']) : false;
+$postdata = (! empty($_POST['month'])) ? trim($_POST['month']) : 'last30';
 
 if($postdata !== false && $postdata == 'last30'){
   //$sql_where = "AND time_start >= (NOW() - INTERVAL 1 MONTH) AND time_start < NOW()";
@@ -90,6 +91,7 @@ $sql = "SELECT organisation as label, COUNT(id) as val
         ORDER BY organisation";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
 $data4 = array();
+$data4_labels = array();
 if($result){
   foreach($result as $row){
     $data4_labels[] = $row->label;
@@ -105,6 +107,7 @@ $sql = "SELECT title as label, COUNT(id) as val
         ORDER BY title";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
 $data5 = array();
+$data5_labels = array();
 if($result){
   foreach($result as $row){
     $data5_labels[] = $row->label;
@@ -146,8 +149,8 @@ if($result){
        </div>
     </section>
 
-     <section class="bar">
-       <div class="canvas-holder">
+     <section class="bar<?php if($postdata == 'totals') echo ' totals';?>">
+       <div class="canvas-holder" style="height:1000px;">
           <canvas id="jhub-chart-4"></canvas>
        </div>
 
@@ -212,6 +215,7 @@ if($result){
 
   var configBar = {
       type: 'horizontalBar',
+      height:1000,
       data: {
           labels: [],
           datasets: [{
@@ -223,7 +227,9 @@ if($result){
               borderWidth: 1
           }]
       },
+      maintainAspectRatio: false,
       options: {
+          responsive: false,
           title: {
               display: true,
               fontSize: 22,
@@ -234,8 +240,12 @@ if($result){
                   ticks: {
                       "beginAtZero": true
                   }
+              }],
+              yAxes: [{
+                barPercentage: 1  
               }]
-          }
+          },
+
       }
   };
 
@@ -266,13 +276,16 @@ if($result){
 
   var config4 = jQuery.extend(true, {}, configBar);
   config4.data.datasets[0].data = [ <?php echo implode(', ', $data4) ?> ];
-  config4.data.labels = [ <?php echo '"'.implode('", "', $data4_labels).'"' ?> ];
+  <?php 
+  if(count($data4_labels)) echo 'config4.data.labels = [ "'.implode('", "', $data4_labels).'" ];'
+  ?>
   config4.options.title.text = 'Bookings per organisation - <?php echo $graph_title ?>';
 
   var config5 = jQuery.extend(true, {}, configBar);
   config5.data.datasets[0].data = [ <?php echo implode(', ', $data5) ?> ];
-  config5.data.labels = [ <?php echo  '"'.implode('", "', $data5_labels).'"' ?> ];
-  config5.options.title.text = 'Bookings per event - <?php echo $graph_title ?>';
+  <?php 
+  if(count($data5_labels)) echo 'config5.data.labels = [ "'.implode('", "', $data5_labels).'" ];'
+  ?>  config5.options.title.text = 'Bookings per event - <?php echo $graph_title ?>';
 
 
 
@@ -296,12 +309,14 @@ if($result){
     <?php if(count($data4) > 0): ?>
     var ctx4 = document.getElementById("jhub-chart-4").getContext("2d");
     window.myChart4 = new Chart(ctx4, config4);
+    window.myChart4.resize();
     <?php endif; ?>
 
     <?php if(count($data5) > 0): ?>
     var ctx5 = document.getElementById("jhub-chart-5").getContext("2d");
     window.myChart5 = new Chart(ctx5, config5);
     <?php endif; ?>
+
 
   }
   </script>

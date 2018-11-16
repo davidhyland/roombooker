@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'ROOMBOOKER_VERSION', '1.3.6' );
+define( 'ROOMBOOKER_VERSION', '1.3.7' );
 define( 'ROOMBOOKER_TABLE', 'jhub_roombooker' );
 
 /**

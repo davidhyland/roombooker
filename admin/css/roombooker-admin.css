@@ -5,17 +5,28 @@
 
 .roombooker .doughnut .canvas-holder { float:left; width:100%; max-width:450px; margin:40px 0 40px 0;}
 
-.roombooker .bar .canvas-holder { float:none; width:95%; max-width:800px; margin:40px 0 40px 0;}
+.roombooker .bar .canvas-holder { float:none; width:95%; margin:40px 0 40px 0;}
+
+.roombooker .bar .canvas-holder canvas { width:800px !important; }
+
+/*.roombooker .bar .canvas-holder canvas#jhub-chart-4 { height:600px !important; }
+
+.roombooker .bar.totals .canvas-holder canvas#jhub-chart-4 { height:2000px !important; }
+
+.roombooker .bar .canvas-holder canvas#jhub-chart-5 { height:400px !important; }
+*/
 
 
 @media only screen and (min-width:1024px) {
 
 	.roombooker .doughnut .canvas-holder { width:30%; margin:40px 3% 40px 0;}
+	.roombooker .bar .canvas-holder canvas { width:900px !important; }
 
 }
 
 @media only screen and (min-width:1200px) {
 
-	.roombooker .bar .canvas-holder { float:left; width:45%; margin-right:5%;}
+	.roombooker .bar .canvas-holder canvas { width:1000px !important; }
 
 }
+
