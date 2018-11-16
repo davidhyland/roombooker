@@ -4,8 +4,8 @@ Contributors: David Hyland
 Author: http://dhyland.com/
 Tags: calendar, scheduler
 Requires at least: WordPress 4.1
-Tested up to: 4.9.6
-Stable tag: 4.9.2
+Tested up to: 4.9.8
+Stable tag: 4.9.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Room booking plugin developed for JHub.
@@ -29,6 +29,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 
 == Changelog ==
+
+= 1.3.9 =
+* Bar graph bug fix
 
 = 1.3.8 =
 * Updated plugin version number

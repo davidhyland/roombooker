@@ -150,7 +150,7 @@ if($result){
     </section>
 
      <section class="bar<?php if($postdata == 'totals') echo ' totals';?>">
-       <div class="canvas-holder" style="height:1000px;">
+       <div class="canvas-holder">
           <canvas id="jhub-chart-4"></canvas>
        </div>
 
@@ -215,7 +215,7 @@ if($result){
 
   var configBar = {
       type: 'horizontalBar',
-      height:1000,
+      //height:1000,
       data: {
           labels: [],
           datasets: [{
