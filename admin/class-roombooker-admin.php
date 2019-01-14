@@ -290,7 +290,7 @@ class Roombooker_Admin {
 	 // output the field
 	 ?>
 	 <input id="<?php echo esc_attr( $args['label_for'] ); ?>" size="50" name="jhub_options[<?php echo esc_attr( $args['label_for'] ); ?>]" value="<?php echo isset($options[$args['label_for']]) ? $options[$args['label_for']] : '' ;?>">
-	 <p class="description">Enter the subject for the confirmation email.</p>
+	 <p class="description">Enter the subject for the confirmation email. [DATE] will be swapped for the event date.</p>
 	 <?php
 	}
 

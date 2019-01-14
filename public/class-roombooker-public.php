@@ -346,7 +346,8 @@ function sendConfirmationEmail($data, $url){
 		//if(!$test) $email_bcc = 'code@dhyland.com';
 		$email_fromemail = (null !== $options['email_fromemail']) ? $options['email_fromemail'] : get_option('admin_email');
 		$email_fromname = (null !== $options['email_fromname']) ? $options['email_fromname'] : get_option('blog_name');
-		$email_subject = $options['email_subject'];
+		//$email_subject = $options['email_subject'];
+		$email_subject = str_replace('[DATE]', date('j F Y', strtotime($data['time_start'])), $options['email_subject']);
 		$link = $url . '?edit=' . $data['id_key'];
 
 		$headers[] = "From: $email_fromname <$email_fromemail>";
@@ -354,7 +355,8 @@ function sendConfirmationEmail($data, $url){
 		$headers[] = "Content-Type: text/html; charset=UTF-8";
 
 		$email_msg  = '<p><b>JHub Room Booker</b></p>';
-		$email_msg .= '<p>Thank you for booking a room. Here are the details:</p>';
+		$email_msg .= '<p>Thank you for booking a room.</p>';
+		$email_msg .= '<p>Here are the details of your room booking on '.date('l jS F Y', strtotime($data['time_start'])).':</p>';
 		$email_msg .= '<p>';
 		$email_msg .= '<b>Date</b>: '.date('l jS F Y', strtotime($data['time_start'])).'<br>';
 		$email_msg .= '<b>Time:</b> '.date('H:i', strtotime($data['time_start'])).' to '.date('H:i', strtotime($data['time_end'])).'<br>';

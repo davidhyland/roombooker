@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.4.0 =
+* Added date to confirmation email subject and body
+
 = 1.3.9 =
 * Bar graph bug fix
 

@@ -383,7 +383,7 @@
 			                  }
 			              },
 			              complete: function( result ){
-			              		//console.log(result);
+			              		console.log(result);
 			              		if(result.responseJSON.result == 'success'){
 				              		$('#roombooker-calendar').fullCalendar('renderEvent', thisData, true); // stick? = true
 				              		//console.log(thisData);

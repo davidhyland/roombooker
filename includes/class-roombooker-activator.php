@@ -37,7 +37,7 @@ class Roombooker_Activator {
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-		$sql = "CREATE TABLE $table_name (
+		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			id_key varchar(10) DEFAULT '' NOT NULL,
 			room tinyint(1) NOT NULL,
@@ -59,7 +59,7 @@ class Roombooker_Activator {
 
 
 		// LOGS TABLE
-		$sql = "CREATE TABLE ".$table_name."_logs (
+		$sql = "CREATE TABLE IF NOT EXISTS ".$table_name."_logs (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			type varchar(10) NOT NULL DEFAULT '0',
 			event_id mediumint(9) NOT NULL DEFAULT '0',
