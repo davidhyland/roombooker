@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.4.3 =
+* Fixed NumPeople not being saved on event update
+
 = 1.4.2 =
 * Added bug fix for event time clash detection
 

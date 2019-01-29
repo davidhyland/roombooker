@@ -383,7 +383,7 @@
 			                  }
 			              },
 			              complete: function( result ){
-			              		console.log(result);
+			              		//console.log(result);
 			              		if(result.responseJSON.result == 'success'){
 				              		$('#roombooker-calendar').fullCalendar('renderEvent', thisData, true); // stick? = true
 				              		//console.log(thisData);
@@ -549,8 +549,12 @@
 									var longtitle = ($('input[name=fldTypeOther]', $modal).val() != '') ? $('input[name=fldTypeOther]', $modal).val() : $('select[name=fldType] option:selected', $modal).text();
 									var name = $('input[name=fldName]', $modal).val();
 									var organisation = $('input[name=fldOrganisation]', $modal).val();
-									var numpeople = $('input[name=fldNumPeople]', $modal).val();
+									var numpeople = $('select[name=fldNumPeople]', $modal).val();
 									var email = $('input[name=fldEmail]', $modal).val();
+
+									// console.log($('input[name=fldNumPeople]', $modal).val());
+									// console.log(numpeople);
+									// console.log(room);
 
 									// update start and end moments
 									event.start = moment(event.start).hour(start_time.substring(0, 2)).minutes(start_time.substring(3));

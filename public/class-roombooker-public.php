@@ -291,7 +291,7 @@ class Roombooker_Public {
 
 			if($clashes === false){
 
-				$data['date_updated'] = date("Y-m-d H:i:s");
+				//$data['date_updated'] = date("Y-m-d H:i:s");
 
 				$result = $wpdb->update( 
 					$table_name, 
@@ -306,7 +306,9 @@ class Roombooker_Public {
 					$log_data = ($logtype == 'update') ?  array(
 						'room' => $data['room'], 
 						'start' => $data['time_start'], 
+						'numpeople' => $data['numpeople'], 
 						'end' => $data['time_end']) : false;
+
 					logthis_db($logtype, sanitize_text_field($_POST['id']), 'success', $log_data);
 
 				}
