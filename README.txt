@@ -30,7 +30,7 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
-= 1.4.1 =
+= 1.4.2 =
 * Added bug fix for event time clash detection
 
 = 1.4.0 =
