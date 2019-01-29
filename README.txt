@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.4.1 =
+* Added bug fix for event time clash detection
+
 = 1.4.0 =
 * Added date to confirmation email subject and body
 

@@ -52,6 +52,8 @@ class Roombooker_Public {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		//date_default_timezone_set("Europe/London");
+
 	}
 
 	/**
@@ -157,15 +159,22 @@ class Roombooker_Public {
 			global $wpdb;
 			$table_name = $wpdb->prefix . ROOMBOOKER_TABLE;
 			$sql = "SELECT * FROM $table_name
-							WHERE (%s BETWEEN DATE_SUB(time_start, INTERVAL 1 MINUTE) AND DATE_SUB(time_end, INTERVAL 1 MINUTE) 
-							OR %s BETWEEN DATE_ADD(time_start, INTERVAL 1 MINUTE) AND DATE_ADD(time_end, INTERVAL 1 MINUTE))
-							AND room = %d AND active = 1";
+							WHERE (
+							%s BETWEEN DATE_SUB(time_start, INTERVAL 1 MINUTE) AND DATE_SUB(time_end, INTERVAL 1 MINUTE) 
+							OR %s BETWEEN DATE_ADD(time_start, INTERVAL 1 MINUTE) AND DATE_ADD(time_end, INTERVAL 1 MINUTE)
+							OR time_start BETWEEN %s AND %s
+							OR time_end BETWEEN %s AND %s
+							) AND room = %d AND active = 1";
+			$args = array($event['time_start'], $event['time_end'], $event['time_start'], $event['time_end'], $event['time_start'], $event['time_end'], $event['room']);
 			if($id !== false && is_numeric($id)){
 				$sql .= " AND id <> %d";
-				$sql = $wpdb->prepare($sql, $event['time_start'], $event['time_end'], $event['room'], $id);
+				array_push($args, $id);
+				$sql = $wpdb->prepare($sql, $args);
+				//$sql = $wpdb->prepare($sql, $event['time_start'], $event['time_end'], $event['room'], $id);
 			}
 			else{
-				$sql = $wpdb->prepare($sql, $event['time_start'], $event['time_end'], $event['room']);
+				$sql = $wpdb->prepare($sql, $args);
+				//$sql = $wpdb->prepare($sql, $event['time_start'], $event['time_end'], $event['room']);
 			}
 			//logthis($sql);
 			$result = $wpdb->get_results($sql);
@@ -281,6 +290,8 @@ class Roombooker_Public {
 
 
 			if($clashes === false){
+
+				$data['date_updated'] = date("Y-m-d H:i:s");
 
 				$result = $wpdb->update( 
 					$table_name, 
