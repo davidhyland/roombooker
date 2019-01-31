@@ -162,8 +162,8 @@ class Roombooker_Public {
 							WHERE (
 							%s BETWEEN DATE_SUB(time_start, INTERVAL 1 MINUTE) AND DATE_SUB(time_end, INTERVAL 1 MINUTE) 
 							OR %s BETWEEN DATE_ADD(time_start, INTERVAL 1 MINUTE) AND DATE_ADD(time_end, INTERVAL 1 MINUTE)
-							OR time_start BETWEEN %s AND %s
-							OR time_end BETWEEN %s AND %s
+							OR time_start BETWEEN DATE_ADD(%s, INTERVAL 1 MINUTE) AND DATE_SUB(%s, INTERVAL 1 MINUTE)
+							OR time_end BETWEEN DATE_ADD(%s, INTERVAL 1 MINUTE) AND DATE_SUB(%s, INTERVAL 1 MINUTE)
 							) AND room = %d AND active = 1";
 			$args = array($event['time_start'], $event['time_end'], $event['time_start'], $event['time_end'], $event['time_start'], $event['time_end'], $event['room']);
 			if($id !== false && is_numeric($id)){
@@ -291,7 +291,7 @@ class Roombooker_Public {
 
 			if($clashes === false){
 
-				//$data['date_updated'] = date("Y-m-d H:i:s");
+				$data['date_updated'] = date("Y-m-d H:i:s");
 
 				$result = $wpdb->update( 
 					$table_name, 

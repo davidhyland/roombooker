@@ -5,24 +5,6 @@ This is a custom update checker library for WordPress plugins and themes. It let
 
 From the users' perspective, it works just like with plugins and themes hosted on WordPress.org. The update checker uses the default upgrade UI that is familiar to most WordPress users.
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Getting Started](#getting-started)
-  - [Self-hosted Plugins and Themes](#self-hosted-plugins-and-themes)
-    - [How to Release an Update](#how-to-release-an-update)
-    - [Notes](#notes)
-  - [GitHub Integration](#github-integration)
-    - [How to Release an Update](#how-to-release-an-update-1)
-    - [Notes](#notes-1)
-  - [BitBucket Integration](#bitbucket-integration)
-    - [How to Release an Update](#how-to-release-an-update-2)
-  - [GitLab Integration](#gitlab-integration)
-    - [How to Release an Update](#how-to-release-an-update-3)
-- [Resources](#resources)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 Getting Started
 ---------------
@@ -56,6 +38,11 @@ This library supports a couple of different ways to release updates on GitHub. P
 - **GitHub releases** 
 	
 	Create a new release using the "Releases" feature on GitHub. The tag name and release title don't matter. The description is optional, but if you do provide one, it will be displayed when the user clicks the "View version x.y.z details" link on the "Plugins" page. Note that PUC ignores releases marked as "This is a pre-release".
+	
+	If you want to use release assets, call the `enableReleaseAssets()` method after creating the update checker instance:
+	```php
+	$myUpdateChecker->getVcsApi()->enableReleaseAssets();
+	```
 	
 - **Tags** 
 	
@@ -102,6 +89,10 @@ The library will pull update details from the following parts of a release/tag/b
 - Ratings, banners, screenshots
 	- Not supported.
 	
+License Management
+------------------
+
+Currently, the update checker doesn't have any built-in license management features. It only provides some hooks that you can use to, for example, append license keys to update requests (`$updateChecker->addQueryArgFilter()`). If you're looking for ways to manage and verify licenses, please post your feedback in [this issue](https://github.com/YahnisElsts/plugin-update-checker/issues/222).  
 
 Resources
 ---------

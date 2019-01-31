@@ -30,6 +30,10 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.4.4 =
+* Added further bug fix for event time clash detection
+* Updated plugin-update-checker to v 4.5
+
 = 1.4.3 =
 * Fixed NumPeople not being saved on event update
 
@@ -55,7 +59,7 @@ Administrator and Editor admin users have the ability to edit all bookings.
 * Moved JS files to head
 
 = 1.3.2 =
-* Added auto plugin update functionality
+* Added auto plugin update functionality (plugin-update-checker v4.4)
 
 = 1.3.1 =
 * Fixed error and re-enabled javascript *strict* mode
