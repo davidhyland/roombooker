@@ -30,7 +30,7 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
-= 1.4.5 =
+= 1.5.0 =
 * Bug fix for stats where booking did not have an end time specified
 
 = 1.4.4 =
