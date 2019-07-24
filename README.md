@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.4.5 =
+* Bug fix for stats where booking did not have an end time specified
+
 = 1.4.4 =
 * Added further bug fix for event time clash detection
 * Updated plugin-update-checker to v 4.5

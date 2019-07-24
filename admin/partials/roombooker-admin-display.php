@@ -45,7 +45,7 @@ if($result){
 // HOURS ROOMS BOOKED
 $sql = "SELECT room, ROUND((SUM(TIME_TO_SEC(TIMEDIFF(time_end, time_start)) / 60) / 60), 1) as val
         FROM $table_name 
-        WHERE active = 1 [SQLWHERE]
+        WHERE active = 1 AND time_end > time_start [SQLWHERE]
         GROUP by room";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
 $data1 = array();
@@ -58,7 +58,7 @@ if($result){
 // NUM TIMES ROOMS BOOKED
 $sql = "SELECT room, COUNT(id) as val
         FROM $table_name 
-        WHERE active = 1 [SQLWHERE]
+        WHERE active = 1 AND time_end > time_start [SQLWHERE]
         GROUP BY room 
         ORDER BY room";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
@@ -72,7 +72,7 @@ if($result){
 // TOTAL PEOPLE PER ROOM
 $sql = "SELECT room, SUM(numpeople) as val
         FROM $table_name 
-        WHERE active = 1 [SQLWHERE]
+        WHERE active = 1 AND time_end > time_start [SQLWHERE]
         GROUP BY room 
         ORDER BY room";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
@@ -86,7 +86,7 @@ if($result){
 // BOOKINGS PER ORGANISATION
 $sql = "SELECT organisation as label, COUNT(id) as val
         FROM $table_name
-        WHERE active = 1 [SQLWHERE]
+        WHERE active = 1 AND time_end > time_start [SQLWHERE]
         GROUP BY organisation
         ORDER BY organisation";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
@@ -102,7 +102,7 @@ if($result){
 // BOOKINGS PER EVENT TYPE
 $sql = "SELECT title as label, COUNT(id) as val
         FROM $table_name
-        WHERE active = 1 [SQLWHERE]
+        WHERE active = 1 AND time_end > time_start [SQLWHERE]
         GROUP BY title
         ORDER BY title";
 $result = $wpdb->get_results( str_replace('[SQLWHERE]', $sql_where, $sql) );
