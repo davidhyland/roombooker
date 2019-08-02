@@ -30,6 +30,9 @@ Administrator and Editor admin users have the ability to edit all bookings.
 
 == Changelog ==
 
+= 1.5.2 =
+* Updated plugin-update-checker to v 4.7
+
 = 1.5.1 =
 * Updated WP version tested up to
 
